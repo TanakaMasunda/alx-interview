@@ -1,15 +1,21 @@
 #!/usr/bin/python3
-'''Create fnctn 2 return list of list of ints rprsnt Pascals triangle of n'''
-'''Returns an empty list if n <= 0,assume n will be always an integer'''
+'''Pascal's triangle to returns an empty list if n <= 0,
+assume n will be always an integer
+'''
 
 def pascal_triangle(n):
-    '''Pascals triangle'''
-    n = input(int("Enter int valueof n:"))
-
+    '''Creates a list of lists of integers representing
+        the Pascal's triangle of n.
+    '''
+    triangle = []
+    if type(n) is not int or n <= 0:
+        return triangle
     for i in range(n):
-        for j in range(n-i+1):
-            print(end=" ")
-        for j in range(i+1):
-            print(factorial(i)//factorial(j)*factorial(i-j)), end=" ")
-        print()
-    return()
+        line = []
+        for j in range(i + 1):
+            if j == 0 or j == i:
+                line.append(1)
+            elif i > 0 and j > 0:
+                line.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
+        triangle.append(line)
+    return triangle
