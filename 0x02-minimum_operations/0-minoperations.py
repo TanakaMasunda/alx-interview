@@ -1,4 +1,4 @@
-# !/usr/bin/python3
+#!/usr/bin/python3
 """ minimum operation using only copy all and paste """
 
 def minOperations(n):
