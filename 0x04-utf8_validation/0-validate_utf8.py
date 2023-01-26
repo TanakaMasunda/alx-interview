@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-UTF-8 Validation Return: True if data is a valid UTF-8 encoding, else return False
+UTF-8 Validation Return:True if data is a UTF-8 encoding, else return False
 """
 
 
 def validUTF8(data) -> bool:
     """
-    A character in UTF-8 can be 1 to 4 bytes long,can contain multiple characters
+    A character in UTF-8 can be 1 to 4 bytes long,contain multiple characters
     :param data:
     :return:
     """
