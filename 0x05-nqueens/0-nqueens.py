@@ -28,11 +28,12 @@ def nqn(board, row):
     if row == n:
         return True
     for i in range(n):
-        if check_column(board, row, i) == True and check_diagonal(board, row, i) == True:
-            board[row][i] = 1
-            if nqn(board, row+1):
-                return True
-            board[row][i] = 0
+        "if check_column(board, row, i) == True:"
+        and "if check_diagonal(board, row, i) == True:"
+        board[row][i] = 1
+        if nqn(board, row+1):
+            return True
+        board[row][i] = 0
     return False
 
 
