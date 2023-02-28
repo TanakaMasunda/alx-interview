@@ -1,42 +1,68 @@
 #!/usr/bin/python3
-
-n = int(input("Enter the value of n:"))
-# making the chess board in line form
-board = [[0 for i in range(n)]for i in range(n)]
-# making it to print in matrix form
-
-
-def check_column(board, row, column):
-    for i in range(row, -1, -1):
-        if board[i][column] == 1:
-            return False
-    return True
+"""
+Solution to the nqueens problem
+"""
+import sys
 
 
-def check_diagonal(board, row, column):
-    for i, j in zip(range(row, -1, -1), range(column, -1, -1)):
-        if board[i][j] == 1:
-            return False
-    for i, j in zip(range(row, -1, -1), range(column, n)):
-        if board[i][j] == 1:
-            return False
-    return True
-# backtracking
+def backtrack(r, n, cols, pos, neg, board):
+    """
+    backtrack function to find solution
+    """
+    if r == n:
+        res = []
+        for l in range(len(board)):
+            for k in range(len(board[l])):
+                if board[l][k] == 1:
+                    res.append([l, k])
+        print(res)
+        return
+
+    for c in range(n):
+        if c in cols or (r + c) in pos or (r - c) in neg:
+            continue
+
+        cols.add(c)
+        pos.add(r + c)
+        neg.add(r - c)
+        board[r][c] = 1
+
+        backtrack(r+1, n, cols, pos, neg, board)
+
+        cols.remove(c)
+        pos.remove(r + c)
+        neg.remove(r - c)
+        board[r][c] = 0
 
 
-def nqn(board, row):
-    if row == n:
-        return True
-    for i in range(n):
-        "if check_column(board, row, i) == True:"
-        and "if check_diagonal(board, row, i) == True:"
-        board[row][i] = 1
-        if nqn(board, row+1):
-            return True
-        board[row][i] = 0
-    return False
+def nqueens(n):
+    """
+    Solution to nqueens problem
+    Args:
+        n (int): number of queens. Must be >= 4
+    Return:
+        List of lists representing coordinates of each
+        queen for all possible solutions
+    """
+    cols = set()
+    pos_diag = set()
+    neg_diag = set()
+    board = [[0] * n for i in range(n)]
+
+    backtrack(0, n, cols, pos_diag, neg_diag, board)
 
 
-nqn(board, 0)
-for row in board:
-    print(row)
+if __name__ == "__main__":
+    n = sys.argv
+    if len(n) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+    try:
+        nn = int(n[1])
+        if nn < 4:
+            print("N must be at least 4")
+            sys.exit(1)
+        nqueens(nn)
+    except ValueError:
+        print("N must be a number")
+        sys.exit(1)
