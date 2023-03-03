@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!
 """
 function that returns the perimeter of the island described in grid
 0 water ,1 land, cell is square(1*1) horizontally or vertically no diagonal
@@ -6,12 +6,11 @@ function that returns the perimeter of the island described in grid
 
 
 def island_perimeter(grid):
-    """
-	grid must be rectangular with width and height not exceeding 100
-	Args
-		p(int): perimeter
-		connections(int): is how the cells are connected to eachother
-	Return:
+    """grid must be rectangular with width and height not exceeding 100
+       Args:
+       	p(int): perimeter
+	connections(int): is how the cells are connected to eachother
+       Return:
 		perimeter without connections
     """
     length_row = len(grid)
