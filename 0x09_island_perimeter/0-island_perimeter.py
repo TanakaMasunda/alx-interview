@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-  function that returns the perimeter of the island described in grid
-  0 water ,1 land, cell is square(1*1) horizontally or vertically no diagonal
- """
+function that returns the perimeter of the island described in grid
+0 water ,1 land, cell is square(1*1) horizontally or vertically no diagonal
+"""
 
 
 def island_perimeter(grid):
