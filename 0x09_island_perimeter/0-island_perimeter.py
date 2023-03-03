@@ -6,6 +6,9 @@
 
 
 def island_perimeter(grid):
+    """
+        grid must be rectangular with width and height not exceeding 100
+    """
     length_row = len(grid)
     length_column = len(grid[0])
 
