@@ -13,6 +13,7 @@ def island_perimeter(grid):
        Return:
 		perimeter without connections
     """
+
     length_row = len(grid)
     length_column = len(grid[0])
 
@@ -30,4 +31,3 @@ def island_perimeter(grid):
             if y != 0 and grid[x][y - 1] == 1:
                 connections += 1
     return p - (connections * 2)
-
