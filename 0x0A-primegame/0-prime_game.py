@@ -11,7 +11,7 @@ def isWinner(x, nums):
         x: is the number of rounds
         nums: is an array of n
     Return: name of winner for most rounds& none if no winner is determined
-     """
+    """
 
     if x == 1:
         return False
